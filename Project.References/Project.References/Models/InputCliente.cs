@@ -9,6 +9,5 @@ namespace Project.References.Models
     {
         public string Name { get; set; }
         public int Idade { get; set; }
-        public string CPF { get; set; }
     }
 }

@@ -12,17 +12,24 @@ namespace Project.References
 
         public Conexao()
         {
-            conect.ConnectionString = "";
-
+            conect.ConnectionString = @"Data Source=DESKTOP-GEIDCJS\SQLEXPRESS;Initial Catalog=DB_REFERENCE;Integrated Security=True";
         }
 
         public SqlConnection Conectar() {
+            if (conect.State == System.Data.ConnectionState.Closed)
+            {
+                conect.Open();
+            }
 
-            return;
+            return conect;
         }
 
         public void Desconectar()
         {
+            if(conect.State == System.Data.ConnectionState.Open)
+            {
+                conect.Close();
+            }
 
         }
     }
